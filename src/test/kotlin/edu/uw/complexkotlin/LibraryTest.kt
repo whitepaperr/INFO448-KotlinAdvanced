@@ -9,25 +9,43 @@ class LibraryTest {
     @Test fun fizzbuzzToTwo() {
         assertEquals("", fizzbuzz(1..2))
     }
+    
     @Test fun fizzbuzzToThree() {
         assertEquals("FIZZ", fizzbuzz(1..3))
     }
+    
     @Test fun fizzbuzzToSix() {
         assertEquals("FIZZBUZZFIZZ", fizzbuzz(1..6))
     }
+    
     @Test fun fizzbuzzToTwelve() {
-        assertEquals("FIZZBUZZFIZZFIZZBUZZFIZZ", fizzbuzz(1..12))
+        assertEquals("FIZZBUZZFIZZDOH!FIZZBUZZFIZZ", fizzbuzz(1..12))
     }
+    
     @Test fun fizzbuzzToFifteen() {
-        assertEquals("FIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZ", fizzbuzz(1..15))
+        assertEquals("FIZZBUZZFIZZDOH!FIZZBUZZFIZZDOH!FIZZBUZZ", fizzbuzz(1..15))
     }
-    // Fizzbuzz to 25 should equal "FIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZFIZZBUZZFIZZFIZZBUZZ"
-    // Fizzbuzz to 50 should equal "FIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZFIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZFIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZFIZZBUZZ"
+    
+    @Test fun fizzbuzzToTwentyFive() {
+        assertEquals("FIZZBUZZFIZZDOH!FIZZBUZZFIZZDOH!FIZZBUZZFIZZBUZZFIZZDOH!FIZZBUZZ", fizzbuzz(1..25))
+    }
+    
+    @Test fun fizzbuzzToFifty() {
+        assertEquals("FIZZBUZZFIZZDOH!FIZZBUZZFIZZDOH!FIZZBUZZFIZZBUZZFIZZDOH!FIZZBUZZFIZZDOH!FIZZBUZZFIZZBUZZDOH!FIZZFIZZBUZZFIZZDOH!FIZZBUZZFIZZDOH!BUZZ", fizzbuzz(1..50))
+    }
+    
+    @Test fun fizzbuzzToHundred() {
+        assertEquals(
+            "FIZZBUZZFIZZDOH!FIZZBUZZFIZZDOH!FIZZBUZZFIZZBUZZFIZZDOH!FIZZBUZZFIZZDOH!FIZZBUZZFIZZBUZZDOH!FIZZFIZZBUZZFIZZDOH!FIZZBUZZFIZZDOH!BUZZFIZZFIZZBUZZDOH!FIZZFIZZBUZZFIZZDOH!BUZZFIZZFIZZBUZZDOH!FIZZFIZZBUZZDOH!FIZZBUZZFIZZFIZZDOH!BUZZFIZZFIZZBUZZDOH!FIZZBUZZFIZZDOH!FIZZBUZZ",
+            fizzbuzz(1..100))
+    }
+    
+    @Test fun fizzbuzzGenTest() {
+        val fb = fizzbuzzgen(mapOf(3 to "FIZZ", 5 to "BUZZ", 7 to "DOH!"))
+        assertEquals("FIZZBUZZFIZZDOH!FIZZBUZZFIZZDOH!FIZZBUZZFIZZBUZZFIZZDOH!", fb(1..21))
+    }
+    
 
-    //@Test fun fizzbuzzgenToFifteen() {
-    //    val fb = fizzbuzzgen(mapOf(3 to "FIZZ", 5 to "BUZZ"))
-    //    assertEquals("FIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZ", fb(1..15))
-    //}
 
     @Test fun r1Test() {
         assertEquals(">>> FOO: {BAR}", r1())
